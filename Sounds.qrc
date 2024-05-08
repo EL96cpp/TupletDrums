@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Sounds/Hihat/hat.wav</file>
+        <file>Sounds/Kick/kick.wav</file>
+        <file>Sounds/Snare/snare.wav</file>
+        <file>Sounds/Snare/snare2.wav</file>
+        <file>Sounds/Snare/snare3.wav</file>
+        <file>Sounds/Snare/snare4.wav</file>
+    </qresource>
+</RCC>
