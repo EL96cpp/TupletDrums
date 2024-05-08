@@ -16,8 +16,8 @@ qt_add_executable(appTupletDrums
 qt_add_qml_module(appTupletDrums
     URI TupletDrums
     VERSION 1.0
-    QML_FILES Main.qml QuintupletsHatModel.qml QuintupletsKickModel.qml QuintupletsSnareModel.qml SeptupletsHatModel.qml
-              SeptupletsKickModel.qml SeptupletsSnareModel.qml
+    QML_FILES Main.qml QuintupletsHatModel.qml QuintupletsKickModel.qml QuintupletsSnareModel.qml QuintupletsClapModel.qml
+              SeptupletsHatModel.qml SeptupletsKickModel.qml SeptupletsSnareModel.qml SeptupletsClapModel.qml
     RESOURCES Images.qrc Fonts.qrc
     RESOURCES Sounds.qrc
 )

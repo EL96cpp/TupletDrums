@@ -58,6 +58,11 @@ Window {
 
             }
 
+            if (clap_view.model.get(current_beat).accent) {
+
+                clap_view.itemAtIndex(current_beat).play();
+
+            }
 
             ++current_beat;
 
@@ -96,10 +101,12 @@ Window {
     Rectangle {
 
         id: drum_kit_rectangle
-        width: 850
+        width: 1015
         height: 550
         radius: 15
         color: "#001C31"
+        border.width: 1
+        border.color: "#abdbe3"
 
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: logo_text.bottom
@@ -113,7 +120,7 @@ Window {
 
             color: main_window.playing ? "#7cc0d8" : "#134b5f"
 
-            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.right: parent.right
             anchors.margins: 30
 
@@ -157,6 +164,10 @@ Window {
             id: quintuplets_snare_model
         }
 
+        QuintupletsClapModel {
+            id: quintuplets_clap_model
+        }
+
         SeptupletsHatModel {
             id: septuplets_hat_model
         }
@@ -169,6 +180,10 @@ Window {
             id: septuplets_snare_model
         }
 
+        SeptupletsClapModel {
+            id: septuplets_clap_model
+        }
+
 
         Rectangle {
 
@@ -177,8 +192,8 @@ Window {
             height: 50
             radius: 5
             border.width: 1
-            color: instrument_rect_color
             border.color: instrument_text_color
+            color: instrument_rect_color
 
             Text {
 
@@ -191,8 +206,10 @@ Window {
 
             }
 
-            anchors.verticalCenter: hat_view.verticalCenter
-            anchors.right: hat_view.left
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            anchors.topMargin: 25
 
         }
 
@@ -256,7 +273,9 @@ Window {
 
             }
 
-            anchors.centerIn: parent
+            anchors.verticalCenter: hat_rectangle.verticalCenter
+            anchors.left: hat_rectangle.right
+            anchors.leftMargin: 10
 
         }
 
@@ -267,8 +286,8 @@ Window {
             height: 50
             radius: 5
             border.width: 1
-            color: instrument_rect_color
             border.color: instrument_text_color
+            color: instrument_rect_color
 
             Text {
 
@@ -281,8 +300,10 @@ Window {
 
             }
 
-            anchors.verticalCenter: kick_view.verticalCenter
-            anchors.right: kick_view.left
+            anchors.left: parent.left
+            anchors.top: hat_rectangle.bottom
+            anchors.leftMargin: 10
+            anchors.topMargin: 5
 
         }
 
@@ -346,8 +367,9 @@ Window {
 
             }
 
-            anchors.horizontalCenter: hat_view.horizontalCenter
-            anchors.top: hat_view.bottom
+            anchors.verticalCenter: kick_rectangle.verticalCenter
+            anchors.left: kick_rectangle.right
+            anchors.leftMargin: 10
 
         }
 
@@ -358,13 +380,13 @@ Window {
             height: 50
             radius: 5
             border.width: 1
-            color: instrument_rect_color
             border.color: instrument_text_color
+            color: instrument_rect_color
 
             Text {
 
                 id: snare_text
-                text: "snare"
+                text: "Snare"
                 color: instrument_text_color
                 font.pointSize: 14
 
@@ -372,8 +394,10 @@ Window {
 
             }
 
-            anchors.verticalCenter: snare_view.verticalCenter
-            anchors.right: snare_view.left
+            anchors.left: parent.left
+            anchors.top: kick_rectangle.bottom
+            anchors.topMargin: 5
+            anchors.leftMargin: 10
 
         }
 
@@ -385,7 +409,6 @@ Window {
             height: 50
             spacing: 5
             orientation: ListView.Horizontal
-
 
             delegate: Rectangle {
 
@@ -432,18 +455,113 @@ Window {
                 SoundEffect {
 
                     id: snare_sound
-                    source: "qrc:/Sounds/clap.wav"
+                    source: "qrc:/Sounds/snare.wav"
                     volume: 100
 
                 }
 
             }
 
-            anchors.horizontalCenter: hat_view.horizontalCenter
-            anchors.top: kick_view.bottom
+            anchors.verticalCenter: snare_rectangle.verticalCenter
+            anchors.left: snare_rectangle.right
+            anchors.leftMargin: 10
 
         }
 
+        Rectangle {
+
+            id: clap_rectangle
+            width: 150
+            height: 50
+            radius: 5
+            border.width: 1
+            border.color: instrument_text_color
+            color: instrument_rect_color
+
+            Text {
+
+                id: clap_text
+                text: "Clap"
+                color: instrument_text_color
+                font.pointSize: 14
+
+                anchors.centerIn: parent
+
+            }
+
+            anchors.left: parent.left
+            anchors.top: snare_rectangle.bottom
+            anchors.topMargin: 5
+            anchors.leftMargin: 10
+
+        }
+
+        ListView {
+
+            id: clap_view
+            model: septuplets_clap_model
+            width: 850
+            height: 50
+            spacing: 5
+            orientation: ListView.Horizontal
+
+            delegate: Rectangle {
+
+                id: clap_delegate
+                width: 25
+                height: 50
+                radius: 5
+                border.width: 1
+                border.color: "#040f13"
+                color: model.accent ? accent_beat_color : model.color
+
+                function play() {
+
+                    clap_sound.play();
+
+                }
+
+                MouseArea {
+
+                    id: clap_mouse_area
+                    hoverEnabled: true
+                    anchors.fill: parent
+
+                    onClicked: {
+
+                        model.accent = !model.accent;
+
+                    }
+
+                }
+
+                layer.enabled: model.accent
+                layer.effect: MultiEffect {
+
+                    id: clap_shadow
+                    blurEnabled: true
+                    blurMax: 30
+                    blur: 0.7
+                    saturation: 0.5
+                    contrast: 0.3
+
+                }
+
+                SoundEffect {
+
+                    id: clap_sound
+                    source: "qrc:/Sounds/clap2.wav"
+                    volume: 100
+
+                }
+
+            }
+
+            anchors.verticalCenter: clap_rectangle.verticalCenter
+            anchors.left: clap_rectangle.right
+            anchors.leftMargin: 10
+
+        }
 
     }
 
