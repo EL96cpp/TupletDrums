@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Effects
 import QtMultimedia
+import QtQuick.Controls
+
 
 Window {
 
@@ -11,6 +13,7 @@ Window {
     title: qsTr("Tuplet Drums")
 
     property bool playing: false
+    property int tempo: 60
 
     property string accent_beat_color: "#0080FB"
     property string odd_quarter_color: "#66BAD8"
@@ -18,6 +21,8 @@ Window {
 
     property string instrument_rect_color: "#00213E"
     property string instrument_text_color: "#B8E0FF"
+
+    property string tuplets_type: "quintuplets"
 
 
     Image {
@@ -32,11 +37,18 @@ Window {
     Timer {
 
         id: quintuplet_timer
-        interval: 100
+        interval: 60000/(tempo*(tuplets_type === "septuplets" ? 7 : 5))
         running: main_window.playing
         repeat: true
 
         property int current_beat
+        property int max_beats_index: tuplets_type === "septuplets" ? 28 : 20
+
+        onIntervalChanged: {
+
+            console.log("New interval " + interval);
+
+        }
 
         onTriggered: {
 
@@ -66,7 +78,7 @@ Window {
 
             ++current_beat;
 
-            if (current_beat == 28) {
+            if (current_beat == max_beats_index) {
 
                 current_beat = 0;
 
@@ -151,6 +163,35 @@ Window {
 
         }
 
+        Rectangle {
+
+            id: tempo_rectangle
+            width: 200
+            height: 200
+            radius: 10
+
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.margins: 30
+
+            TextInput {
+
+                id: tempo_input
+                text: "60"
+                cursorVisible: false
+                anchors.centerIn: parent
+
+                onTextChanged: {
+
+                    tempo = parseInt(tempo_input.text);
+                    console.log("Tempo changed to " + tempo);
+
+                }
+
+            }
+
+        }
+
 
         QuintupletsHatModel {
             id: quintuplets_hat_model
@@ -208,7 +249,7 @@ Window {
 
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.leftMargin: 10
+            anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
             anchors.topMargin: 25
 
         }
@@ -216,7 +257,7 @@ Window {
         ListView {
 
             id: hat_view
-            model: septuplets_hat_model
+            model: tuplets_type === "quintuplets" ? quintuplets_hat_model : septuplets_hat_model
             width: 850
             height: 50
             spacing: 5
@@ -302,7 +343,7 @@ Window {
 
             anchors.left: parent.left
             anchors.top: hat_rectangle.bottom
-            anchors.leftMargin: 10
+            anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
             anchors.topMargin: 5
 
         }
@@ -310,7 +351,7 @@ Window {
         ListView {
 
             id: kick_view
-            model: septuplets_kick_model
+            model: tuplets_type === "quintuplets" ? quintuplets_kick_model : septuplets_kick_model
             width: 850
             height: 50
             spacing: 5
@@ -397,14 +438,14 @@ Window {
             anchors.left: parent.left
             anchors.top: kick_rectangle.bottom
             anchors.topMargin: 5
-            anchors.leftMargin: 10
+            anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
 
         }
 
         ListView {
 
             id: snare_view
-            model: septuplets_snare_model
+            model: tuplets_type === "quintuplets" ? quintuplets_snare_model : septuplets_snare_model
             width: 850
             height: 50
             spacing: 5
@@ -492,14 +533,14 @@ Window {
             anchors.left: parent.left
             anchors.top: snare_rectangle.bottom
             anchors.topMargin: 5
-            anchors.leftMargin: 10
+            anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
 
         }
 
         ListView {
 
             id: clap_view
-            model: septuplets_clap_model
+            model: tuplets_type === "quintuplets" ? quintuplets_clap_model : septuplets_clap_model
             width: 850
             height: 50
             spacing: 5
