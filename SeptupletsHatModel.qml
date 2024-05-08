@@ -8,37 +8,37 @@ ListModel {
 
     Component.onCompleted: {
 
-        septuplets_hat_model.append({"accent" : true});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : true});
-        septuplets_hat_model.append({"accent" : false});
+        septuplets_hat_model.append({"accent" : true, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : true, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
 
-        septuplets_hat_model.append({"accent" : true});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : true});
-        septuplets_hat_model.append({"accent" : false});
+        septuplets_hat_model.append({"accent" : true, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : true, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
 
-        septuplets_hat_model.append({"accent" : true});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : true});
-        septuplets_hat_model.append({"accent" : false});
+        septuplets_hat_model.append({"accent" : true, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : true, "color" : odd_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : odd_quarter_color});
 
-        septuplets_hat_model.append({"accent" : true});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : false});
-        septuplets_hat_model.append({"accent" : true});
-        septuplets_hat_model.append({"accent" : false});
+        septuplets_hat_model.append({"accent" : true, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : true, "color" : even_quarter_color});
+        septuplets_hat_model.append({"accent" : false, "color" : even_quarter_color});
 
     }
 

@@ -8,38 +8,38 @@ ListModel {
 
     Component.onCompleted: {
 
-        septuplets_kick_model.append({"accent" : true});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
 
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
 
-        septuplets_kick_model.append({"accent" : true});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : odd_quarter_color});
 
 
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
-        septuplets_kick_model.append({"accent" : false});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
+        septuplets_kick_model.append({"accent" : false, "color" : even_quarter_color});
 
     }
 

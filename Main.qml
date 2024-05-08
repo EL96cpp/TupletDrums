@@ -12,6 +12,11 @@ Window {
 
     property bool playing: false
 
+    property string accent_beat_color: "#FF5100"
+    property string odd_quarter_color: "#92cbdf"
+    property string even_quarter_color: "#BACFE2"
+
+
     Image {
 
         id: background_image
@@ -91,7 +96,7 @@ Window {
         width: parent.width/1.5
         height: parent.height/1.5
         radius: 10
-        color: "#ffffff"
+        color: "#001C31"
 
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: logo_text.bottom
@@ -176,7 +181,9 @@ Window {
                 width: 10
                 height: 30
                 radius: 5
-                color: model.accent ? "#2596BE" : "#0b2d39"
+                border.width: 1
+                border.color: "#040f13"
+                color: model.accent ? accent_beat_color : model.color
 
                 function play() {
 
@@ -238,7 +245,9 @@ Window {
                 width: 10
                 height: 30
                 radius: 5
-                color: model.accent ? "#2596BE" : "#0b2d39"
+                border.width: 1
+                border.color: "#040f13"
+                color: model.accent ? accent_beat_color : model.color
 
                 function play() {
 
@@ -295,13 +304,17 @@ Window {
             height: 60
             spacing: 5
             orientation: ListView.Horizontal
+
+
             delegate: Rectangle {
 
                 id: snare_delegate
                 width: 10
                 height: 30
                 radius: 5
-                color: model.accent ? "#2596BE" : "#0b2d39"
+                border.width: 1
+                border.color: "#040f13"
+                color: model.accent ? accent_beat_color : model.color
 
                 function play() {
 
