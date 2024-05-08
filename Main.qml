@@ -12,9 +12,12 @@ Window {
 
     property bool playing: false
 
-    property string accent_beat_color: "#FF5100"
-    property string odd_quarter_color: "#92cbdf"
+    property string accent_beat_color: "#0080FB"
+    property string odd_quarter_color: "#66BAD8"
     property string even_quarter_color: "#BACFE2"
+
+    property string instrument_rect_color: "#00213E"
+    property string instrument_text_color: "#B8E0FF"
 
 
     Image {
@@ -93,9 +96,9 @@ Window {
     Rectangle {
 
         id: drum_kit_rectangle
-        width: parent.width/1.5
-        height: parent.height/1.5
-        radius: 10
+        width: 850
+        height: 550
+        radius: 15
         color: "#001C31"
 
         anchors.horizontalCenter: parent.horizontalCenter
@@ -167,19 +170,45 @@ Window {
         }
 
 
+        Rectangle {
+
+            id: hat_rectangle
+            width: 150
+            height: 50
+            radius: 5
+            border.width: 1
+            color: instrument_rect_color
+            border.color: instrument_text_color
+
+            Text {
+
+                id: hat_text
+                text: "Hi-hat"
+                color: instrument_text_color
+                font.pointSize: 14
+
+                anchors.centerIn: parent
+
+            }
+
+            anchors.verticalCenter: hat_view.verticalCenter
+            anchors.right: hat_view.left
+
+        }
+
         ListView {
 
             id: hat_view
             model: septuplets_hat_model
             width: 850
-            height: 60
+            height: 50
             spacing: 5
             orientation: ListView.Horizontal
             delegate: Rectangle {
 
                 id: hat_delegate
-                width: 10
-                height: 30
+                width: 25
+                height: 50
                 radius: 5
                 border.width: 1
                 border.color: "#040f13"
@@ -220,7 +249,7 @@ Window {
                 SoundEffect {
 
                     id: hi_hat_sound
-                    source: "qrc:/Sounds/Hihat/hat.wav"
+                    source: "qrc:/Sounds/hat.wav"
                     volume: 100
 
                 }
@@ -231,19 +260,45 @@ Window {
 
         }
 
+        Rectangle {
+
+            id: kick_rectangle
+            width: 150
+            height: 50
+            radius: 5
+            border.width: 1
+            color: instrument_rect_color
+            border.color: instrument_text_color
+
+            Text {
+
+                id: kick_text
+                text: "Kick"
+                color: instrument_text_color
+                font.pointSize: 14
+
+                anchors.centerIn: parent
+
+            }
+
+            anchors.verticalCenter: kick_view.verticalCenter
+            anchors.right: kick_view.left
+
+        }
+
         ListView {
 
             id: kick_view
             model: septuplets_kick_model
             width: 850
-            height: 60
+            height: 50
             spacing: 5
             orientation: ListView.Horizontal
             delegate: Rectangle {
 
                 id: kick_delegate
-                width: 10
-                height: 30
+                width: 25
+                height: 50
                 radius: 5
                 border.width: 1
                 border.color: "#040f13"
@@ -284,7 +339,7 @@ Window {
                 SoundEffect {
 
                     id: kick_sound
-                    source: "qrc:/Sounds/Kick/kick.wav"
+                    source: "qrc:/Sounds/kick.wav"
                     volume: 100
 
                 }
@@ -296,12 +351,38 @@ Window {
 
         }
 
+        Rectangle {
+
+            id: snare_rectangle
+            width: 150
+            height: 50
+            radius: 5
+            border.width: 1
+            color: instrument_rect_color
+            border.color: instrument_text_color
+
+            Text {
+
+                id: snare_text
+                text: "snare"
+                color: instrument_text_color
+                font.pointSize: 14
+
+                anchors.centerIn: parent
+
+            }
+
+            anchors.verticalCenter: snare_view.verticalCenter
+            anchors.right: snare_view.left
+
+        }
+
         ListView {
 
             id: snare_view
             model: septuplets_snare_model
             width: 850
-            height: 60
+            height: 50
             spacing: 5
             orientation: ListView.Horizontal
 
@@ -309,8 +390,8 @@ Window {
             delegate: Rectangle {
 
                 id: snare_delegate
-                width: 10
-                height: 30
+                width: 25
+                height: 50
                 radius: 5
                 border.width: 1
                 border.color: "#040f13"
@@ -351,7 +432,7 @@ Window {
                 SoundEffect {
 
                     id: snare_sound
-                    source: "qrc:/Sounds/Snare/snare.wav"
+                    source: "qrc:/Sounds/clap.wav"
                     volume: 100
 
                 }
