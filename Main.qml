@@ -127,43 +127,39 @@ Window {
         anchors.topMargin: logo_text.paintedHeight/4
 
         PlayButton {
+
             id: play_rectangle
+
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.margins: 30
+
         }
 
-        Rectangle {
+        TempoInput {
 
             id: tempo_rectangle
-            width: 70
-            height: 70
-            radius: 10
-            color: even_quarter_color
 
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             anchors.margins: 30
 
-            TextInput {
+        }
 
-                id: tempo_input
-                text: "80"
-                font.family: tempo_font.name
-                font.pixelSize: 60
-                cursorVisible: false
-                anchors.centerIn: parent
+        TupletTypeSwitch {
+            id: tuplet_type_switch_rectangle
+        }
 
-                onTextChanged: {
+        Text {
 
-                    tempo = parseInt(tempo_input.text);
+            id: tempo_text
+            text: "Tempo"
+            font.pointSize: 12
+            color: instrument_text_color
 
-                }
-
-                Component.onCompleted: {
-
-                    tempo = parseInt(tempo_input.text);
-
-                }
-
-            }
+            anchors.top: tempo_rectangle.bottom
+            anchors.topMargin: 5
+            anchors.horizontalCenter: tempo_rectangle.horizontalCenter
 
         }
 

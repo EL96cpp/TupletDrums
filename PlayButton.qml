@@ -24,10 +24,6 @@ Rectangle {
 
     color: instrument_rect_color
 
-    anchors.bottom: parent.bottom
-    anchors.right: parent.right
-    anchors.margins: 30
-
     layer.enabled: play_button_mouse_area.containsMouse
     layer.effect: MultiEffect {
 
