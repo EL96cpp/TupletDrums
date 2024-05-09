@@ -50,6 +50,12 @@ Window {
 
         }
 
+        Component.onCompleted: {
+
+            quintuplet_timer.stop();
+
+        }
+
         onTriggered: {
 
             if (hat_view.model.get(current_beat).accent) {
@@ -124,50 +130,15 @@ Window {
         anchors.top: logo_text.bottom
         anchors.topMargin: logo_text.paintedHeight/4
 
-        Rectangle {
-
+        PlayButton {
             id: play_rectangle
-            width: 40
-            height: 40
-
-            color: main_window.playing ? "#7cc0d8" : "#134b5f"
-
-            anchors.bottom: parent.bottom
-            anchors.right: parent.right
-            anchors.margins: 30
-
-            MouseArea {
-
-                id: play_button_mouse_area
-                hoverEnabled: true
-                anchors.fill: parent
-
-                onClicked: {
-
-                    main_window.playing = !main_window.playing;
-                    quintuplet_timer.current_beat = 0;
-
-                    if (quintuplet_timer.running) {
-
-                        quintuplet_timer.stop();
-
-                    } else {
-
-                        quintuplet_timer.start();
-
-                    }
-
-                }
-
-            }
-
         }
 
         Rectangle {
 
             id: tempo_rectangle
-            width: 200
-            height: 200
+            width: 70
+            height: 70
             radius: 10
 
             anchors.left: parent.left
