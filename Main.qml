@@ -38,7 +38,7 @@ Window {
 
         id: quintuplet_timer
         interval: 60000/(tempo*(tuplets_type === "septuplets" ? 7 : 5))
-        running: main_window.playing
+        running: false
         repeat: true
 
         property int current_beat
@@ -52,7 +52,7 @@ Window {
 
         Component.onCompleted: {
 
-            quintuplet_timer.stop();
+            console.log("Running on created: " + running);
 
         }
 

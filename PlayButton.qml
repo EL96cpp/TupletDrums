@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Effects
 import QtMultimedia
 import QtQuick.Controls
+import QtQuick.Shapes
 
 
 Rectangle {
@@ -45,7 +46,7 @@ Rectangle {
         id: pause_rectangles
         width: parent.width
         height: parent.height
-        visible: !playing
+        visible: playing
 
         anchors.centerIn: parent
 
@@ -82,7 +83,7 @@ Rectangle {
         id: play_triangle
         width: parent.width
         height: parent.height
-        visible: playing
+        visible: !playing
 
         anchors.centerIn: parent
 
@@ -99,16 +100,23 @@ Rectangle {
                 var ctx = getContext("2d")
 
                 ctx.strokeStyle = playing_inner_color;
-                ctx.lineWidth = 5;
+                ctx.fillStyle = playing_inner_color;
+                ctx.lineWidth = 1;
 
                 ctx.beginPath();
 
-                ctx.moveTo(0, 0);
+                ctx.moveTo(left_rectangle.x, left_rectangle.y);
+
+                ctx.lineTo(parent.width - play_triangle_margins*2, (parent.height - play_triangle_margins*2)/2);
+                ctx.lineTo(0, right_rectangle.height);
+                ctx.lineTo(left_rectangle.x, left_rectangle.y);
+                /*
                 ctx.lineTo(parent.width - play_triangle_margins*2, (parent.height - play_triangle_margins*2)/2);
                 ctx.lineTo(0, parent.height - play_triangle_margins*2);
                 ctx.lineTo(0, 0);
+                */
 
-                ctx.stroke()
+                ctx.fill()
 
             }
 
@@ -126,6 +134,8 @@ Rectangle {
 
             main_window.playing = !main_window.playing;
             quintuplet_timer.current_beat = 0;
+
+            console.log("Running on clicked: " + quintuplet_timer.running);
 
             if (quintuplet_timer.running) {
 
