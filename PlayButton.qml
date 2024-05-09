@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Effects
 import QtMultimedia
 import QtQuick.Controls
-import QtQuick.Shapes
 
 
 Rectangle {
@@ -14,7 +13,7 @@ Rectangle {
     border.width: 1
     border.color: instrument_text_color
 
-    property bool playing: quintuplet_timer.running
+    property bool playing: main_timer.running
     property string playing_background_color: "#134b5f"
     property string stopped_background_color
     property string playing_inner_color: "#66BAD8"
@@ -105,16 +104,11 @@ Rectangle {
 
                 ctx.beginPath();
 
-                ctx.moveTo(left_rectangle.x, left_rectangle.y);
+                ctx.moveTo(0, 0);
 
                 ctx.lineTo(parent.width - play_triangle_margins*2, (parent.height - play_triangle_margins*2)/2);
                 ctx.lineTo(0, right_rectangle.height);
-                ctx.lineTo(left_rectangle.x, left_rectangle.y);
-                /*
-                ctx.lineTo(parent.width - play_triangle_margins*2, (parent.height - play_triangle_margins*2)/2);
-                ctx.lineTo(0, parent.height - play_triangle_margins*2);
                 ctx.lineTo(0, 0);
-                */
 
                 ctx.fill()
 
@@ -133,19 +127,15 @@ Rectangle {
         onClicked: {
 
             main_window.playing = !main_window.playing;
-            quintuplet_timer.current_beat = 0;
+            main_timer.current_beat = 0;
 
-            console.log("Running on clicked: " + quintuplet_timer.running);
+            if (main_timer.running) {
 
-            if (quintuplet_timer.running) {
-
-                console.log("stopped timer");
-                quintuplet_timer.stop();
+                main_timer.stop();
 
             } else {
 
-                console.log("started timer");
-                quintuplet_timer.start();
+                main_timer.start();
 
             }
 

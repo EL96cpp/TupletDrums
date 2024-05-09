@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>Fonts/LogoFont.ttf</file>
         <file>Fonts/LogoFont2.otf</file>
+        <file>Fonts/TempoFont.ttf</file>
     </qresource>
 </RCC>

@@ -13,7 +13,7 @@ Window {
     title: qsTr("Tuplet Drums")
 
     property bool playing: false
-    property int tempo: 60
+    property int tempo
 
     property string accent_beat_color: "#0080FB"
     property string odd_quarter_color: "#66BAD8"
@@ -36,25 +36,13 @@ Window {
 
     Timer {
 
-        id: quintuplet_timer
+        id: main_timer
         interval: 60000/(tempo*(tuplets_type === "septuplets" ? 7 : 5))
         running: false
         repeat: true
 
         property int current_beat
         property int max_beats_index: tuplets_type === "septuplets" ? 28 : 20
-
-        onIntervalChanged: {
-
-            console.log("New interval " + interval);
-
-        }
-
-        Component.onCompleted: {
-
-            console.log("Running on created: " + running);
-
-        }
 
         onTriggered: {
 
@@ -116,6 +104,14 @@ Window {
 
     }
 
+
+    FontLoader {
+
+        id: tempo_font
+        source: "qrc:/Fonts/TempoFont.ttf"
+
+    }
+
     Rectangle {
 
         id: drum_kit_rectangle
@@ -140,6 +136,7 @@ Window {
             width: 70
             height: 70
             radius: 10
+            color: even_quarter_color
 
             anchors.left: parent.left
             anchors.bottom: parent.bottom
@@ -148,14 +145,21 @@ Window {
             TextInput {
 
                 id: tempo_input
-                text: "60"
+                text: "80"
+                font.family: tempo_font.name
+                font.pixelSize: 60
                 cursorVisible: false
                 anchors.centerIn: parent
 
                 onTextChanged: {
 
                     tempo = parseInt(tempo_input.text);
-                    console.log("Tempo changed to " + tempo);
+
+                }
+
+                Component.onCompleted: {
+
+                    tempo = parseInt(tempo_input.text);
 
                 }
 
