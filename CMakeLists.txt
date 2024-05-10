@@ -18,7 +18,7 @@ qt_add_qml_module(appTupletDrums
     VERSION 1.0
     QML_FILES Main.qml QuintupletsHatModel.qml QuintupletsKickModel.qml QuintupletsSnareModel.qml QuintupletsClapModel.qml
               SeptupletsHatModel.qml SeptupletsKickModel.qml SeptupletsSnareModel.qml SeptupletsClapModel.qml PlayButton.qml
-              TempoInput.qml TupletTypeSwitch.qml ResetText.qml
+              TempoInput.qml TupletTypeSwitch.qml TextButton.qml
     RESOURCES Images.qrc Fonts.qrc
     RESOURCES Sounds.qrc
 )

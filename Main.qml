@@ -24,29 +24,36 @@ Window {
 
     property string tuplets_type: "quintuplets"
 
-    function resetCurrentAccents() {
 
-        for (var i = 0; i < hat_view.model.count; ++i) {
+    Connections {
 
-            hat_view.model.get(i).accent = false;
+        target: reset_text_button
 
-        }
+        function onTextButtonClicked() {
 
-        for (var i = 0; i < kick_view.model.count; ++i) {
+            for (var i = 0; i < hat_view.model.count; ++i) {
 
-            kick_view.model.get(i).accent = false;
+                hat_view.model.get(i).accent = false;
 
-        }
+            }
 
-        for (var i = 0; i < snare_view.model.count; ++i) {
+            for (var i = 0; i < kick_view.model.count; ++i) {
 
-            snare_view.model.get(i).accent = false;
+                kick_view.model.get(i).accent = false;
 
-        }
+            }
 
-        for (var i = 0; i < clap_view.model.count; ++i) {
+            for (var i = 0; i < snare_view.model.count; ++i) {
 
-            clap_view.model.get(i).accent = false;
+                snare_view.model.get(i).accent = false;
+
+            }
+
+            for (var i = 0; i < clap_view.model.count; ++i) {
+
+                clap_view.model.get(i).accent = false;
+
+            }
 
         }
 
@@ -154,8 +161,12 @@ Window {
         anchors.top: logo_text.bottom
         anchors.topMargin: logo_text.paintedHeight/4
 
-        ResetText {
-            id: reset_text
+        TextButton {
+
+            id: reset_text_button
+
+            text_value: "Reset"
+
         }
 
         PlayButton {
@@ -174,7 +185,7 @@ Window {
 
             anchors.left: parent.left
             anchors.bottom: parent.bottom
-            anchors.margins: 30
+            anchors.margins: 50
 
         }
 
