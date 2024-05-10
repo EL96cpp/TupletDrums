@@ -24,18 +24,6 @@ Rectangle {
 
     color: instrument_rect_color
 
-    layer.enabled: play_button_mouse_area.containsMouse
-    layer.effect: MultiEffect {
-
-        id: hat_shadow
-        blurEnabled: true
-        blurMax: 30
-        blur: 0.7
-        saturation: 0.5
-        contrast: 0.3
-
-    }
-
     Item {
 
         id: pause_rectangles

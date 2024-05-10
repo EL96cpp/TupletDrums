@@ -51,6 +51,8 @@ Rectangle {
         height: width
         radius: height/2
         color: odd_quarter_color
+        border.color: "#000000"
+        border.width: 1
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 0

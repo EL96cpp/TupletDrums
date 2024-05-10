@@ -24,6 +24,34 @@ Window {
 
     property string tuplets_type: "quintuplets"
 
+    function resetCurrentAccents() {
+
+        for (var i = 0; i < hat_view.model.count; ++i) {
+
+            hat_view.model.get(i).accent = false;
+
+        }
+
+        for (var i = 0; i < kick_view.model.count; ++i) {
+
+            kick_view.model.get(i).accent = false;
+
+        }
+
+        for (var i = 0; i < snare_view.model.count; ++i) {
+
+            snare_view.model.get(i).accent = false;
+
+        }
+
+        for (var i = 0; i < clap_view.model.count; ++i) {
+
+            clap_view.model.get(i).accent = false;
+
+        }
+
+    }
+
 
     Image {
 
@@ -126,6 +154,10 @@ Window {
         anchors.top: logo_text.bottom
         anchors.topMargin: logo_text.paintedHeight/4
 
+        ResetText {
+            id: reset_text
+        }
+
         PlayButton {
 
             id: play_rectangle
@@ -146,10 +178,6 @@ Window {
 
         }
 
-        TupletTypeSwitch {
-            id: tuplet_type_switch_rectangle
-        }
-
         Text {
 
             id: tempo_text
@@ -160,6 +188,22 @@ Window {
             anchors.top: tempo_rectangle.bottom
             anchors.topMargin: 5
             anchors.horizontalCenter: tempo_rectangle.horizontalCenter
+
+        }
+
+        TupletTypeSwitch {
+            id: tuplet_type_switch_rectangle
+        }
+
+        Text {
+
+            id: tuplet_type_switch_text
+            text: "Tuplets"
+            font.pointSize: 12
+            color: instrument_text_color
+
+            anchors.verticalCenter: tempo_text.verticalCenter
+            anchors.horizontalCenter: tuplet_type_switch_rectangle.horizontalCenter
 
         }
 
@@ -221,7 +265,7 @@ Window {
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
-            anchors.topMargin: 25
+            anchors.topMargin: 100
 
         }
 
