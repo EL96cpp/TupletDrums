@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
+find_package(OpenAL)
 
 qt_standard_project_setup()
 
@@ -21,6 +22,7 @@ qt_add_qml_module(appTupletDrums
               TempoInput.qml TupletTypeSwitch.qml TextButton.qml
     RESOURCES Images.qrc Fonts.qrc
     RESOURCES Sounds.qrc
+    SOURCES drummachine.h drummachine.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -35,7 +37,7 @@ set_target_properties(appTupletDrums PROPERTIES
 )
 
 target_link_libraries(appTupletDrums
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick OpenAL::OpenAL
 )
 
 include(GNUInstallDirs)
