@@ -275,7 +275,7 @@ Window {
 
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
+            anchors.leftMargin: 80
             anchors.topMargin: 100
 
         }
@@ -291,7 +291,7 @@ Window {
             delegate: Rectangle {
 
                 id: hat_delegate
-                width: 25
+                width: tuplets_type === "quintuplets" ? 30 : 20
                 height: 50
                 radius: 5
                 border.width: 1
@@ -369,7 +369,7 @@ Window {
 
             anchors.left: parent.left
             anchors.top: hat_rectangle.bottom
-            anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
+            anchors.leftMargin: 80
             anchors.topMargin: 5
 
         }
@@ -385,7 +385,7 @@ Window {
             delegate: Rectangle {
 
                 id: kick_delegate
-                width: 25
+                width: tuplets_type === "quintuplets" ? 30 : 20
                 height: 50
                 radius: 5
                 border.width: 1
@@ -464,7 +464,7 @@ Window {
             anchors.left: parent.left
             anchors.top: kick_rectangle.bottom
             anchors.topMargin: 5
-            anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
+            anchors.leftMargin: 80
 
         }
 
@@ -480,7 +480,7 @@ Window {
             delegate: Rectangle {
 
                 id: snare_delegate
-                width: 25
+                width: tuplets_type === "quintuplets" ? 30 : 20
                 height: 50
                 radius: 5
                 border.width: 1
@@ -559,7 +559,7 @@ Window {
             anchors.left: parent.left
             anchors.top: snare_rectangle.bottom
             anchors.topMargin: 5
-            anchors.leftMargin: tuplets_type === "quintuplets" ? 110 : 10
+            anchors.leftMargin: 80
 
         }
 
@@ -575,7 +575,7 @@ Window {
             delegate: Rectangle {
 
                 id: clap_delegate
-                width: 25
+                width: tuplets_type === "quintuplets" ? 30 : 20
                 height: 50
                 radius: 5
                 border.width: 1
